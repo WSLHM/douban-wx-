@@ -1,0 +1,8 @@
+<view class='index-container'>
+    <image src='../../image/logo.png'></image>
+    <text class='username'>hello moto</text>
+    <!--  bindtap='newsHandler' 点击btn-view会触发newsHandler事件  -->
+    <view class='btn-view' bindtap='newsHandler'>
+        <text>开启小程序之旅</text>
+    </view>
+</view>

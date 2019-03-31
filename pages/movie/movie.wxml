@@ -1,0 +1,19 @@
+<!--pages/movie/movie.wxml-->
+<!-- 
+
+1.电影列表模板
+    movie-list-template
+2.电影模板
+    movie-template
+3.评分模板
+    star-template
+
+电影页面:
+    move -> movie-list-template(3个) -> movie-template(3个) -> star-template
+ -->
+
+ <import src="movie-list-template/movie-list-template.wxml" />
+
+ <template is="movieListTemplate" data="{{...coming_soon}}" />
+ <template is="movieListTemplate" data="{{...in_theaters}}" />
+ <template is="movieListTemplate" data="{{...top250}}" />

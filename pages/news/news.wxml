@@ -1,0 +1,49 @@
+
+<!-- 引入news-template.wxml -->
+<import src="./news-template/news-template.wxml" />
+
+<swiper indicator-dots="{{ swiperOptions.indicatorDots}}" indicator-active-color="{{ swiperOptions.indicatorActiveColor}}" autoplay="{{ swiperOptions.autoplay}}" interval="{{ swiperOptions.interval}}" circular="{{ swiperOptions.circular}}">
+
+    <!-- 
+    wx:for
+    在组件上使用 wx:for 控制属性绑定一个数组，即可使用数组中各项的数据重复渲染该组件。
+    默认数组的当前项的下标变量名默认为 index，数组当前项的变量名默认为 item
+    使用 wx:for-item 可以指定数组当前元素的变量名，
+    使用 wx:for-index 可以指定数组当前下标的变量名：
+
+    block wx:for
+    类似 block wx:if，也可以将 wx:for 用在<block/>标签上，以渲染一个包含多节点的结构块。
+    如不提供 wx:key，会报一个 warning， 如果明确知道该列表是静态，或者不必关注其顺序，可以选择忽略。
+     -->
+
+<!-- 轮播 -->
+<block wx:for="{{swiperOptions.imgUrls}}" wx:for-item="item" wx:for-index="idx" wx:key="idx">
+    <swiper-item>
+        <image src="{{item}}" class='swiper-image'></image>
+    </swiper-item>
+</block>
+
+</swiper>
+
+
+<!-- 新闻列表 -->
+<block wx:for="{{ news }}" wx:for-item="item" wx:for-index="idx" wx:key>
+       
+    <view  bindtap="detailHandler" data-newsid="{{ item.id }}">
+         <template is="newsTemplate" data="{{ ...item }}" />
+    </view>
+
+</block>
+
+<!-- 
+... 扩展运算符
+var obj = {
+    name: 'lilei',
+    age: 18
+}
+
+...obj ->
+name: 'lilei',
+age: 18
+
+ -->
